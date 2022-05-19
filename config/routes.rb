@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  root to: "home#index"
+  resources :tweets
+  root to: "tweets#index"
 
   devise_for :users
-    resource :users
+  resource :users do
+    resource :tweet
+  end
 end
